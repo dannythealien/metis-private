@@ -11,12 +11,13 @@
 <p><a href="index.html">Back</a></p>
 <p>Metis is a private personal assistant used only by its owner, on the owner's own computer. This page describes how it handles Google account data.</p>
 <h2>What it accesses</h2>
-<p>Only the owner's own Google account, and only with the owner's consent: Gmail (read mail, create drafts) and Google Calendar (read events). The assistant itself cannot send, delete or modify email and cannot change the calendar.</p>
+<p>Only the owner's own Google account, and only with the owner's consent: Gmail (read mail, create drafts) and Google Calendar (read events). The assistant itself cannot send, delete or modify email and cannot change the owner's calendars, except for the reminder events on its own "Metis Reminders" calendar described below.</p>
 <p>A separate cleanup tool, which only the owner starts on the owner's computer, can also move messages to Trash and apply a label to them (Gmail permission to modify mail, but never to delete permanently or send). It does this only for a search the owner types and only after the owner approves the exact number of messages in a confirmation window. It keeps a local record of the message identifiers it moved so the owner can undo the change.</p>
+<p>The assistant can also create and delete reminder events on a separate calendar named "Metis Reminders", which it creates in the owner's own Google account. It does this only with the owner's approval of each action. It uses the narrow Google Calendar permission "calendar.app.created", so it can see and change only calendars it created itself and cannot see or change any other calendar, including the owner's main one. The text of a reminder is sent to Google Calendar, to be stored in that calendar and shown on the owner's devices. Each approval request (the reminder's title and time) is also shown on the owner's computer and is sent as a notification to the owner's phone through the owner's own Home Assistant installation and its mobile-app push service; for a cancellation the title is first read back from the Metis Reminders calendar.</p>
 <h2>How the data is used</h2>
 <p>Data is used only to answer the owner's requests, such as summarizing messages, listing calendar events and preparing a draft for the owner to review and send personally. It is processed on the owner's computer by an AI model that also runs on that computer.</p>
 <h2>Sharing and storage</h2>
-<p>Google user data is not sold, shared with or transferred to any other person, company or server. Message text is not stored by the app. A small activity log on the owner's computer records only which function was used and counts, never message content. The sign-in token is kept on the owner's computer in a file readable only by the owner.</p>
+<p>Google user data is not sold, shared with or transferred to any other person, company or server. Message text is not stored by the app. A small activity log on the owner's computer records only which function was used and counts, never message content. The one exception is the owner's local Home Assistant action log on the owner's own computer, which may hold the text of a phone notification (for example a reminder title). The sign-in token is kept on the owner's computer in a file readable only by the owner.</p>
 <h2>Google API Services User Data Policy</h2>
 <p>Metis's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
 <h2>Control and deletion</h2>
@@ -25,6 +26,6 @@
 <p>This page collects no information from visitors.</p>
 <h2>Changes</h2>
 <p>If how Google data is handled ever changes, this page will be updated first.</p>
-<p>Last updated: 27 October 2026.</p>
+<p>Last updated: 27 October 2026 (reminders added).</p>
 </body>
 </html>
